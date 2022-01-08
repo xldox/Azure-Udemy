@@ -1,0 +1,9 @@
+{
+	"name": "dfFrazao01",
+	"location": "brazilsouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9c9d7011-7b78-4c08-8f6a-16d5ba35fef1",
+		"tenantId": "b723150c-dbe4-4a8b-9640-a7e9ba7fc119"
+	}
+}
