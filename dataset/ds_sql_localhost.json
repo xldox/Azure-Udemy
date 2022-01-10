@@ -1,0 +1,20 @@
+{
+	"name": "ds_sql_localhost",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerLocalhost",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Schema": {
+				"type": "string"
+			},
+			"Table": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
