@@ -20,11 +20,24 @@
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "ds_sql_localhost",
+						"type": "DatasetReference",
+						"parameters": {
+							"Schema": "Production",
+							"Table": "Product"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_adv_wrk_dw",
 						"type": "DatasetReference"
 					}
 				]
