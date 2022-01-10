@@ -15,6 +15,10 @@
 		},
 		"annotations": [],
 		"type": "SqlServerTable",
-		"schema": []
+		"schema": [],
+		"typeProperties": {
+			"schema": "Production",
+			"table": "Product"
+		}
 	}
 }
