@@ -1,9 +1,9 @@
 {
-	"name": "pipeline1",
+	"name": "pl_adv_works",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copy from localhost",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
