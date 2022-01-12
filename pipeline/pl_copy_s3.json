@@ -72,7 +72,8 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"container": "files",
-							"path": "Salus"
+							"path": "Salus",
+							"fileName": "avaliacao.parquet"
 						}
 					}
 				]
