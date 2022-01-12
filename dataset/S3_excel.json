@@ -1,0 +1,398 @@
+{
+	"name": "S3_excel",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_aws_s3",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AmazonS3Location",
+				"bucketName": "leandroaws2022",
+				"folderPath": "Salus",
+				"fileName": {
+					"value": "@dataset().fileName",
+					"type": "Expression"
+				}
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "RazaoSocial",
+				"type": "String"
+			},
+			{
+				"name": "NomeFantasia",
+				"type": "String"
+			},
+			{
+				"name": "Codigo",
+				"type": "String"
+			},
+			{
+				"name": "CNPJ",
+				"type": "String"
+			},
+			{
+				"name": "NomeRT",
+				"type": "String"
+			},
+			{
+				"name": "CRORT",
+				"type": "String"
+			},
+			{
+				"name": "CROUnidade",
+				"type": "String"
+			},
+			{
+				"name": "InscricaoMunicipal",
+				"type": "String"
+			},
+			{
+				"name": "InscricaoEstadual",
+				"type": "String"
+			},
+			{
+				"name": "Endereco",
+				"type": "String"
+			},
+			{
+				"name": "Numero",
+				"type": "String"
+			},
+			{
+				"name": "Complemento",
+				"type": "String"
+			},
+			{
+				"name": "Bairro",
+				"type": "String"
+			},
+			{
+				"name": "IDCidade",
+				"type": "String"
+			},
+			{
+				"name": "IDEstado",
+				"type": "String"
+			},
+			{
+				"name": "CEP",
+				"type": "String"
+			},
+			{
+				"name": "Latitude",
+				"type": "String"
+			},
+			{
+				"name": "Longitude",
+				"type": "String"
+			},
+			{
+				"name": "WebSite",
+				"type": "String"
+			},
+			{
+				"name": "Email",
+				"type": "String"
+			},
+			{
+				"name": "Telefone1",
+				"type": "String"
+			},
+			{
+				"name": "Telefone2",
+				"type": "String"
+			},
+			{
+				"name": "Telefone3",
+				"type": "String"
+			},
+			{
+				"name": "Fax",
+				"type": "String"
+			},
+			{
+				"name": "RoyaltyCarencia",
+				"type": "String"
+			},
+			{
+				"name": "RoyaltyCarenciaInicio",
+				"type": "String"
+			},
+			{
+				"name": "RoyaltyCarenciaFinal",
+				"type": "String"
+			},
+			{
+				"name": "RoyaltyCobrancaInicio",
+				"type": "String"
+			},
+			{
+				"name": "RoyaltyTipo",
+				"type": "String"
+			},
+			{
+				"name": "RoyaltyPercentual",
+				"type": "String"
+			},
+			{
+				"name": "RoyaltyValor",
+				"type": "String"
+			},
+			{
+				"name": "FundoCarencia",
+				"type": "String"
+			},
+			{
+				"name": "FundoCarenciaInicio",
+				"type": "String"
+			},
+			{
+				"name": "FundoCarenciaFinal",
+				"type": "String"
+			},
+			{
+				"name": "FundoCobrancaInicio",
+				"type": "String"
+			},
+			{
+				"name": "FundoTipo",
+				"type": "String"
+			},
+			{
+				"name": "FundoPercentual",
+				"type": "String"
+			},
+			{
+				"name": "FundoValor",
+				"type": "String"
+			},
+			{
+				"name": "IDStatusUnidade",
+				"type": "String"
+			},
+			{
+				"name": "DataVenda",
+				"type": "String"
+			},
+			{
+				"name": "DataExpiracaoContrato",
+				"type": "String"
+			},
+			{
+				"name": "DataInicioObra",
+				"type": "String"
+			},
+			{
+				"name": "DataFinalObra",
+				"type": "String"
+			},
+			{
+				"name": "DataInauguracao",
+				"type": "String"
+			},
+			{
+				"name": "DataInicioPonto",
+				"type": "String"
+			},
+			{
+				"name": "DataFinalPonto",
+				"type": "String"
+			},
+			{
+				"name": "Observacao",
+				"type": "String"
+			},
+			{
+				"name": "Categoria",
+				"type": "String"
+			},
+			{
+				"name": "FranqueadoraPercentual",
+				"type": "String"
+			},
+			{
+				"name": "SalasTotal",
+				"type": "String"
+			},
+			{
+				"name": "SalasAtivas",
+				"type": "String"
+			},
+			{
+				"name": "IDGrupo",
+				"type": "String"
+			},
+			{
+				"name": "IDEmpresa",
+				"type": "String"
+			},
+			{
+				"name": "GravarLog",
+				"type": "String"
+			},
+			{
+				"name": "TipoDesconto",
+				"type": "String"
+			},
+			{
+				"name": "DescLabComAvaliador",
+				"type": "String"
+			},
+			{
+				"name": "DescLabComNegociador",
+				"type": "String"
+			},
+			{
+				"name": "TipoAprovacao",
+				"type": "String"
+			},
+			{
+				"name": "TipoTEF",
+				"type": "String"
+			},
+			{
+				"name": "MaxTabelasLab",
+				"type": "String"
+			},
+			{
+				"name": "MaxDiasComissionar",
+				"type": "String"
+			},
+			{
+				"name": "PermiteClienteEstrangeiro",
+				"type": "String"
+			},
+			{
+				"name": "DataCadastro",
+				"type": "String"
+			},
+			{
+				"name": "IDUsuarioCadastro",
+				"type": "String"
+			},
+			{
+				"name": "DataAlteracao",
+				"type": "String"
+			},
+			{
+				"name": "IDUsuarioAlteracao",
+				"type": "String"
+			},
+			{
+				"name": "CategoriaPlanoConta",
+				"type": "String"
+			},
+			{
+				"name": "PontoReferencia",
+				"type": "String"
+			},
+			{
+				"name": "HorarioFuncionamento",
+				"type": "String"
+			},
+			{
+				"name": "Estacionamento",
+				"type": "String"
+			},
+			{
+				"name": "AcessoCadeirante",
+				"type": "String"
+			},
+			{
+				"name": "RadiografiaPanoramica",
+				"type": "String"
+			},
+			{
+				"name": "AceitaSorriden",
+				"type": "String"
+			},
+			{
+				"name": "PermitePesquisaUnidades",
+				"type": "String"
+			},
+			{
+				"name": "CategoriaTamanho",
+				"type": "String"
+			},
+			{
+				"name": "IDTipoReceitaDespesa",
+				"type": "String"
+			},
+			{
+				"name": "DiaVencimentoFundo",
+				"type": "String"
+			},
+			{
+				"name": "SmsPermitirResposta",
+				"type": "String"
+			},
+			{
+				"name": "BloquearAcesso",
+				"type": "String"
+			},
+			{
+				"name": "IDModeloEmail",
+				"type": "String"
+			},
+			{
+				"name": "NomeComercial",
+				"type": "String"
+			},
+			{
+				"name": "DataEncerramento",
+				"type": "String"
+			},
+			{
+				"name": "DiaTravaSolicitacaoPagamento",
+				"type": "String"
+			},
+			{
+				"name": "VerificarLimiteOrcamento",
+				"type": "String"
+			},
+			{
+				"name": "IDRxPlano",
+				"type": "String"
+			},
+			{
+				"name": "CobrarMensalidadeSistema",
+				"type": "String"
+			},
+			{
+				"name": "ValorMensalidadeSistema",
+				"type": "String"
+			},
+			{
+				"name": "RegimeTributario",
+				"type": "String"
+			},
+			{
+				"name": "IDSisoTabelaPreco",
+				"type": "String"
+			},
+			{
+				"name": "HorarioInicio",
+				"type": "String"
+			},
+			{
+				"name": "HorarioTermino",
+				"type": "String"
+			}
+		]
+	}
+}
