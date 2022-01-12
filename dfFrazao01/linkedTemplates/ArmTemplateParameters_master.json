@@ -20,6 +20,12 @@
 		"ls_sql_adv_works_connectionString": {
 			"value": ""
 		},
+		"ls_sql_staging_connectionString": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kvFrazao01.vault.azure.net/"
+		},
 		"ls_adls_properties_typeProperties_url": {
 			"value": "https://adlsadvwks.dfs.core.windows.net"
 		},

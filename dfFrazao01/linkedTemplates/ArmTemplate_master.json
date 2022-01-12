@@ -27,6 +27,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sql_adv_works'"
 		},
+		"ls_sql_staging_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql_staging'"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kvFrazao01.vault.azure.net/"
+		},
 		"ls_adls_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsadvwks.dfs.core.windows.net"
@@ -74,8 +82,14 @@
 					"ls_sql_adv_works_connectionString": {
 						"value": "[parameters('ls_sql_adv_works_connectionString')]"
 					},
+					"ls_sql_staging_connectionString": {
+						"value": "[parameters('ls_sql_staging_connectionString')]"
+					},
 					"SqlServerLocalhost_connectionString": {
 						"value": "[parameters('SqlServerLocalhost_connectionString')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
 					"ls_adls_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_properties_typeProperties_url')]"
