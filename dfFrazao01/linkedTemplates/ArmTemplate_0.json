@@ -15,13 +15,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_adv_wrk_dw'"
 		},
-		"ls_sql_adv_works_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ls_sql_adv_works'"
-		},
 		"ls_aws_s3_secretAccessKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'secretAccessKey' of 'ls_aws_s3'"
+		},
+		"ls_sql_adv_works_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql_adv_works'"
 		},
 		"SqlServerLocalhost_connectionString": {
 			"type": "secureString",
@@ -71,6 +71,26 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/ls_aws_s3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Linked service to connect AWS S3",
+				"annotations": [],
+				"type": "AmazonS3",
+				"typeProperties": {
+					"serviceUrl": "",
+					"accessKeyId": "[parameters('ls_aws_s3_properties_typeProperties_accessKeyId')]",
+					"secretAccessKey": {
+						"type": "SecureString",
+						"value": "[parameters('ls_aws_s3_secretAccessKey')]"
+					},
+					"authenticationType": "AccessKey"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/ls_sql_adv_works')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -94,24 +114,38 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ls_aws_s3')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/S3_CSV')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Linked service to connect AWS S3",
+				"linkedServiceName": {
+					"referenceName": "ls_aws_s3",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"type": "AmazonS3",
+				"type": "DelimitedText",
 				"typeProperties": {
-					"serviceUrl": "",
-					"accessKeyId": "[parameters('ls_aws_s3_properties_typeProperties_accessKeyId')]",
-					"secretAccessKey": {
-						"type": "SecureString",
-						"value": "[parameters('ls_aws_s3_secretAccessKey')]"
+					"location": {
+						"type": "AmazonS3Location",
+						"bucketName": "leandroaws2022",
+						"folderPath": "Salus",
+						"fileName": "Avaliacao.csv"
 					},
-					"authenticationType": "AccessKey"
-				}
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;Observacao;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
+						"type": "String"
+					}
+				]
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_aws_s3')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ds_adls_parquet')]",
@@ -214,69 +248,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/S3_CSV')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ls_aws_s3",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AmazonS3Location",
-						"bucketName": "leandroaws2022",
-						"folderPath": "Salus",
-						"fileName": "Avaliacao.csv"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;Observacao;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_aws_s3')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_sql_localhost')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SqlServerLocalhost",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"Schema": {
-						"type": "string"
-					},
-					"Table": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "Production",
-					"table": "Product"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SqlServerLocalhost')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/pl_copy_s3')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -322,12 +293,12 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;Observacao;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
+											"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
 											"type": "String",
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;Observacao;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
+											"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
 											"type": "String",
 											"physicalType": "UTF8"
 										}
@@ -372,6 +343,35 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/S3_CSV')]",
 				"[concat(variables('factoryId'), '/datasets/ds_adls_parquet')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_sql_localhost')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SqlServerLocalhost",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Schema": {
+						"type": "string"
+					},
+					"Table": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "Production",
+					"table": "Product"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SqlServerLocalhost')]"
 			]
 		}
 	]

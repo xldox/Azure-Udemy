@@ -19,13 +19,13 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_adv_wrk_dw'"
 		},
-		"ls_sql_adv_works_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ls_sql_adv_works'"
-		},
 		"ls_aws_s3_secretAccessKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'secretAccessKey' of 'ls_aws_s3'"
+		},
+		"ls_sql_adv_works_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql_adv_works'"
 		},
 		"ls_adls_properties_typeProperties_url": {
 			"type": "string",
@@ -68,11 +68,11 @@
 					"ls_adv_wrk_dw_connectionString": {
 						"value": "[parameters('ls_adv_wrk_dw_connectionString')]"
 					},
-					"ls_sql_adv_works_connectionString": {
-						"value": "[parameters('ls_sql_adv_works_connectionString')]"
-					},
 					"ls_aws_s3_secretAccessKey": {
 						"value": "[parameters('ls_aws_s3_secretAccessKey')]"
+					},
+					"ls_sql_adv_works_connectionString": {
+						"value": "[parameters('ls_sql_adv_works_connectionString')]"
 					},
 					"SqlServerLocalhost_connectionString": {
 						"value": "[parameters('SqlServerLocalhost_connectionString')]"

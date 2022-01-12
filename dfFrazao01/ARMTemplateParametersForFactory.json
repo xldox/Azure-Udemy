@@ -14,10 +14,10 @@
 		"ls_adv_wrk_dw_connectionString": {
 			"value": ""
 		},
-		"ls_sql_adv_works_connectionString": {
+		"ls_aws_s3_secretAccessKey": {
 			"value": ""
 		},
-		"ls_aws_s3_secretAccessKey": {
+		"ls_sql_adv_works_connectionString": {
 			"value": ""
 		},
 		"ls_adls_properties_typeProperties_url": {
