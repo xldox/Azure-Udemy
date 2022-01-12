@@ -61,14 +61,11 @@
 						"userProperties": [],
 						"typeProperties": {
 							"source": {
-								"type": "DelimitedTextSource",
+								"type": "ExcelSource",
 								"storeSettings": {
 									"type": "AmazonS3ReadSettings",
 									"recursive": true,
 									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
 								}
 							},
 							"sink": {
@@ -86,12 +83,1104 @@
 								"mappings": [
 									{
 										"source": {
-											"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
+											"name": "ID",
 											"type": "String",
 											"physicalType": "String"
 										},
 										"sink": {
-											"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
+											"name": "ID",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RazaoSocial",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RazaoSocial",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "NomeFantasia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "NomeFantasia",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Codigo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Codigo",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "CNPJ",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CNPJ",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "NomeRT",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "NomeRT",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "CRORT",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CRORT",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "CROUnidade",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CROUnidade",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "InscricaoMunicipal",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "InscricaoMunicipal",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "InscricaoEstadual",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "InscricaoEstadual",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Endereco",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Endereco",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Numero",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Numero",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Complemento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Complemento",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Bairro",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Bairro",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDCidade",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDCidade",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDEstado",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDEstado",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "CEP",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CEP",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Latitude",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Latitude",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Longitude",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Longitude",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "WebSite",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "WebSite",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Email",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Email",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Telefone1",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Telefone1",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Telefone2",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Telefone2",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Telefone3",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Telefone3",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Fax",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Fax",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RoyaltyCarencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RoyaltyCarencia",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RoyaltyCarenciaInicio",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RoyaltyCarenciaInicio",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RoyaltyCarenciaFinal",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RoyaltyCarenciaFinal",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RoyaltyCobrancaInicio",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RoyaltyCobrancaInicio",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RoyaltyTipo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RoyaltyTipo",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RoyaltyPercentual",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RoyaltyPercentual",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RoyaltyValor",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RoyaltyValor",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "FundoCarencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FundoCarencia",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "FundoCarenciaInicio",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FundoCarenciaInicio",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "FundoCarenciaFinal",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FundoCarenciaFinal",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "FundoCobrancaInicio",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FundoCobrancaInicio",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "FundoTipo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FundoTipo",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "FundoPercentual",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FundoPercentual",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "FundoValor",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FundoValor",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDStatusUnidade",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDStatusUnidade",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataVenda",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataVenda",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataExpiracaoContrato",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataExpiracaoContrato",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataInicioObra",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataInicioObra",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataFinalObra",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataFinalObra",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataInauguracao",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataInauguracao",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataInicioPonto",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataInicioPonto",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataFinalPonto",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataFinalPonto",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Observacao",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Observacao",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Categoria",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Categoria",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "FranqueadoraPercentual",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "FranqueadoraPercentual",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "SalasTotal",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "SalasTotal",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "SalasAtivas",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "SalasAtivas",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDGrupo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDGrupo",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDEmpresa",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDEmpresa",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "GravarLog",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "GravarLog",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "TipoDesconto",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TipoDesconto",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DescLabComAvaliador",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DescLabComAvaliador",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DescLabComNegociador",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DescLabComNegociador",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "TipoAprovacao",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TipoAprovacao",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "TipoTEF",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "TipoTEF",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "MaxTabelasLab",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "MaxTabelasLab",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "MaxDiasComissionar",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "MaxDiasComissionar",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "PermiteClienteEstrangeiro",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PermiteClienteEstrangeiro",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataCadastro",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataCadastro",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDUsuarioCadastro",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDUsuarioCadastro",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataAlteracao",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataAlteracao",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDUsuarioAlteracao",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDUsuarioAlteracao",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "CategoriaPlanoConta",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CategoriaPlanoConta",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "PontoReferencia",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PontoReferencia",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "HorarioFuncionamento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "HorarioFuncionamento",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "Estacionamento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Estacionamento",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "AcessoCadeirante",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "AcessoCadeirante",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RadiografiaPanoramica",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RadiografiaPanoramica",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "AceitaSorriden",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "AceitaSorriden",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "PermitePesquisaUnidades",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "PermitePesquisaUnidades",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "CategoriaTamanho",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CategoriaTamanho",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDTipoReceitaDespesa",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDTipoReceitaDespesa",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DiaVencimentoFundo",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DiaVencimentoFundo",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "SmsPermitirResposta",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "SmsPermitirResposta",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "BloquearAcesso",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "BloquearAcesso",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDModeloEmail",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDModeloEmail",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "NomeComercial",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "NomeComercial",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DataEncerramento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DataEncerramento",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "DiaTravaSolicitacaoPagamento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "DiaTravaSolicitacaoPagamento",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "VerificarLimiteOrcamento",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "VerificarLimiteOrcamento",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDRxPlano",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDRxPlano",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "CobrarMensalidadeSistema",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "CobrarMensalidadeSistema",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "ValorMensalidadeSistema",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "ValorMensalidadeSistema",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "RegimeTributario",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "RegimeTributario",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "IDSisoTabelaPreco",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IDSisoTabelaPreco",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "HorarioInicio",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "HorarioInicio",
+											"type": "String",
+											"physicalType": "UTF8"
+										}
+									},
+									{
+										"source": {
+											"name": "HorarioTermino",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "HorarioTermino",
 											"type": "String",
 											"physicalType": "UTF8"
 										}
@@ -106,9 +1195,12 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "S3_CSV",
+								"referenceName": "S3_excel",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"fileName": "Unidade.xlsx",
+									"tableName": "Planilha1"
+								}
 							}
 						],
 						"outputs": [
@@ -134,7 +1226,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/S3_CSV')]",
+				"[concat(variables('factoryId'), '/datasets/S3_excel')]",
 				"[concat(variables('factoryId'), '/datasets/ds_adls_parquet')]"
 			]
 		},
@@ -164,6 +1256,416 @@
 				"schema": [
 					{
 						"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;Observacao;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_aws_s3')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/S3_excel')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_aws_s3",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"fileName": {
+						"type": "string"
+					},
+					"tableName": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": {
+						"value": "@dataset().tableName",
+						"type": "Expression"
+					},
+					"location": {
+						"type": "AmazonS3Location",
+						"bucketName": "leandroaws2022",
+						"folderPath": "Salus",
+						"fileName": {
+							"value": "@dataset().fileName",
+							"type": "Expression"
+						}
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "ID",
+						"type": "String"
+					},
+					{
+						"name": "RazaoSocial",
+						"type": "String"
+					},
+					{
+						"name": "NomeFantasia",
+						"type": "String"
+					},
+					{
+						"name": "Codigo",
+						"type": "String"
+					},
+					{
+						"name": "CNPJ",
+						"type": "String"
+					},
+					{
+						"name": "NomeRT",
+						"type": "String"
+					},
+					{
+						"name": "CRORT",
+						"type": "String"
+					},
+					{
+						"name": "CROUnidade",
+						"type": "String"
+					},
+					{
+						"name": "InscricaoMunicipal",
+						"type": "String"
+					},
+					{
+						"name": "InscricaoEstadual",
+						"type": "String"
+					},
+					{
+						"name": "Endereco",
+						"type": "String"
+					},
+					{
+						"name": "Numero",
+						"type": "String"
+					},
+					{
+						"name": "Complemento",
+						"type": "String"
+					},
+					{
+						"name": "Bairro",
+						"type": "String"
+					},
+					{
+						"name": "IDCidade",
+						"type": "String"
+					},
+					{
+						"name": "IDEstado",
+						"type": "String"
+					},
+					{
+						"name": "CEP",
+						"type": "String"
+					},
+					{
+						"name": "Latitude",
+						"type": "String"
+					},
+					{
+						"name": "Longitude",
+						"type": "String"
+					},
+					{
+						"name": "WebSite",
+						"type": "String"
+					},
+					{
+						"name": "Email",
+						"type": "String"
+					},
+					{
+						"name": "Telefone1",
+						"type": "String"
+					},
+					{
+						"name": "Telefone2",
+						"type": "String"
+					},
+					{
+						"name": "Telefone3",
+						"type": "String"
+					},
+					{
+						"name": "Fax",
+						"type": "String"
+					},
+					{
+						"name": "RoyaltyCarencia",
+						"type": "String"
+					},
+					{
+						"name": "RoyaltyCarenciaInicio",
+						"type": "String"
+					},
+					{
+						"name": "RoyaltyCarenciaFinal",
+						"type": "String"
+					},
+					{
+						"name": "RoyaltyCobrancaInicio",
+						"type": "String"
+					},
+					{
+						"name": "RoyaltyTipo",
+						"type": "String"
+					},
+					{
+						"name": "RoyaltyPercentual",
+						"type": "String"
+					},
+					{
+						"name": "RoyaltyValor",
+						"type": "String"
+					},
+					{
+						"name": "FundoCarencia",
+						"type": "String"
+					},
+					{
+						"name": "FundoCarenciaInicio",
+						"type": "String"
+					},
+					{
+						"name": "FundoCarenciaFinal",
+						"type": "String"
+					},
+					{
+						"name": "FundoCobrancaInicio",
+						"type": "String"
+					},
+					{
+						"name": "FundoTipo",
+						"type": "String"
+					},
+					{
+						"name": "FundoPercentual",
+						"type": "String"
+					},
+					{
+						"name": "FundoValor",
+						"type": "String"
+					},
+					{
+						"name": "IDStatusUnidade",
+						"type": "String"
+					},
+					{
+						"name": "DataVenda",
+						"type": "String"
+					},
+					{
+						"name": "DataExpiracaoContrato",
+						"type": "String"
+					},
+					{
+						"name": "DataInicioObra",
+						"type": "String"
+					},
+					{
+						"name": "DataFinalObra",
+						"type": "String"
+					},
+					{
+						"name": "DataInauguracao",
+						"type": "String"
+					},
+					{
+						"name": "DataInicioPonto",
+						"type": "String"
+					},
+					{
+						"name": "DataFinalPonto",
+						"type": "String"
+					},
+					{
+						"name": "Observacao",
+						"type": "String"
+					},
+					{
+						"name": "Categoria",
+						"type": "String"
+					},
+					{
+						"name": "FranqueadoraPercentual",
+						"type": "String"
+					},
+					{
+						"name": "SalasTotal",
+						"type": "String"
+					},
+					{
+						"name": "SalasAtivas",
+						"type": "String"
+					},
+					{
+						"name": "IDGrupo",
+						"type": "String"
+					},
+					{
+						"name": "IDEmpresa",
+						"type": "String"
+					},
+					{
+						"name": "GravarLog",
+						"type": "String"
+					},
+					{
+						"name": "TipoDesconto",
+						"type": "String"
+					},
+					{
+						"name": "DescLabComAvaliador",
+						"type": "String"
+					},
+					{
+						"name": "DescLabComNegociador",
+						"type": "String"
+					},
+					{
+						"name": "TipoAprovacao",
+						"type": "String"
+					},
+					{
+						"name": "TipoTEF",
+						"type": "String"
+					},
+					{
+						"name": "MaxTabelasLab",
+						"type": "String"
+					},
+					{
+						"name": "MaxDiasComissionar",
+						"type": "String"
+					},
+					{
+						"name": "PermiteClienteEstrangeiro",
+						"type": "String"
+					},
+					{
+						"name": "DataCadastro",
+						"type": "String"
+					},
+					{
+						"name": "IDUsuarioCadastro",
+						"type": "String"
+					},
+					{
+						"name": "DataAlteracao",
+						"type": "String"
+					},
+					{
+						"name": "IDUsuarioAlteracao",
+						"type": "String"
+					},
+					{
+						"name": "CategoriaPlanoConta",
+						"type": "String"
+					},
+					{
+						"name": "PontoReferencia",
+						"type": "String"
+					},
+					{
+						"name": "HorarioFuncionamento",
+						"type": "String"
+					},
+					{
+						"name": "Estacionamento",
+						"type": "String"
+					},
+					{
+						"name": "AcessoCadeirante",
+						"type": "String"
+					},
+					{
+						"name": "RadiografiaPanoramica",
+						"type": "String"
+					},
+					{
+						"name": "AceitaSorriden",
+						"type": "String"
+					},
+					{
+						"name": "PermitePesquisaUnidades",
+						"type": "String"
+					},
+					{
+						"name": "CategoriaTamanho",
+						"type": "String"
+					},
+					{
+						"name": "IDTipoReceitaDespesa",
+						"type": "String"
+					},
+					{
+						"name": "DiaVencimentoFundo",
+						"type": "String"
+					},
+					{
+						"name": "SmsPermitirResposta",
+						"type": "String"
+					},
+					{
+						"name": "BloquearAcesso",
+						"type": "String"
+					},
+					{
+						"name": "IDModeloEmail",
+						"type": "String"
+					},
+					{
+						"name": "NomeComercial",
+						"type": "String"
+					},
+					{
+						"name": "DataEncerramento",
+						"type": "String"
+					},
+					{
+						"name": "DiaTravaSolicitacaoPagamento",
+						"type": "String"
+					},
+					{
+						"name": "VerificarLimiteOrcamento",
+						"type": "String"
+					},
+					{
+						"name": "IDRxPlano",
+						"type": "String"
+					},
+					{
+						"name": "CobrarMensalidadeSistema",
+						"type": "String"
+					},
+					{
+						"name": "ValorMensalidadeSistema",
+						"type": "String"
+					},
+					{
+						"name": "RegimeTributario",
+						"type": "String"
+					},
+					{
+						"name": "IDSisoTabelaPreco",
+						"type": "String"
+					},
+					{
+						"name": "HorarioInicio",
+						"type": "String"
+					},
+					{
+						"name": "HorarioTermino",
 						"type": "String"
 					}
 				]
