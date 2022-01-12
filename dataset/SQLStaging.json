@@ -1,0 +1,399 @@
+{
+	"name": "SQLStaging",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_staging",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"tableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "varchar"
+			},
+			{
+				"name": "RazaoSocial",
+				"type": "varchar"
+			},
+			{
+				"name": "NomeFantasia",
+				"type": "varchar"
+			},
+			{
+				"name": "Codigo",
+				"type": "varchar"
+			},
+			{
+				"name": "CNPJ",
+				"type": "varchar"
+			},
+			{
+				"name": "NomeRT",
+				"type": "varchar"
+			},
+			{
+				"name": "CRORT",
+				"type": "varchar"
+			},
+			{
+				"name": "CROUnidade",
+				"type": "varchar"
+			},
+			{
+				"name": "InscricaoMunicipal",
+				"type": "varchar"
+			},
+			{
+				"name": "InscricaoEstadual",
+				"type": "varchar"
+			},
+			{
+				"name": "Endereco",
+				"type": "varchar"
+			},
+			{
+				"name": "Numero",
+				"type": "varchar"
+			},
+			{
+				"name": "Complemento",
+				"type": "varchar"
+			},
+			{
+				"name": "Bairro",
+				"type": "varchar"
+			},
+			{
+				"name": "IDCidade",
+				"type": "varchar"
+			},
+			{
+				"name": "IDEstado",
+				"type": "varchar"
+			},
+			{
+				"name": "CEP",
+				"type": "varchar"
+			},
+			{
+				"name": "Latitude",
+				"type": "varchar"
+			},
+			{
+				"name": "Longitude",
+				"type": "varchar"
+			},
+			{
+				"name": "WebSite",
+				"type": "varchar"
+			},
+			{
+				"name": "Email",
+				"type": "varchar"
+			},
+			{
+				"name": "Telefone1",
+				"type": "varchar"
+			},
+			{
+				"name": "Telefone2",
+				"type": "varchar"
+			},
+			{
+				"name": "Telefone3",
+				"type": "varchar"
+			},
+			{
+				"name": "Fax",
+				"type": "varchar"
+			},
+			{
+				"name": "RoyaltyCarencia",
+				"type": "varchar"
+			},
+			{
+				"name": "RoyaltyCarenciaInicio",
+				"type": "varchar"
+			},
+			{
+				"name": "RoyaltyCarenciaFinal",
+				"type": "varchar"
+			},
+			{
+				"name": "RoyaltyCobrancaInicio",
+				"type": "varchar"
+			},
+			{
+				"name": "RoyaltyTipo",
+				"type": "varchar"
+			},
+			{
+				"name": "RoyaltyPercentual",
+				"type": "varchar"
+			},
+			{
+				"name": "RoyaltyValor",
+				"type": "varchar"
+			},
+			{
+				"name": "FundoCarencia",
+				"type": "varchar"
+			},
+			{
+				"name": "FundoCarenciaInicio",
+				"type": "varchar"
+			},
+			{
+				"name": "FundoCarenciaFinal",
+				"type": "varchar"
+			},
+			{
+				"name": "FundoCobrancaInicio",
+				"type": "varchar"
+			},
+			{
+				"name": "FundoTipo",
+				"type": "varchar"
+			},
+			{
+				"name": "FundoPercentual",
+				"type": "varchar"
+			},
+			{
+				"name": "FundoValor",
+				"type": "varchar"
+			},
+			{
+				"name": "IDStatusUnidade",
+				"type": "varchar"
+			},
+			{
+				"name": "DataVenda",
+				"type": "varchar"
+			},
+			{
+				"name": "DataExpiracaoContrato",
+				"type": "varchar"
+			},
+			{
+				"name": "DataInicioObra",
+				"type": "varchar"
+			},
+			{
+				"name": "DataFinalObra",
+				"type": "varchar"
+			},
+			{
+				"name": "DataInauguracao",
+				"type": "varchar"
+			},
+			{
+				"name": "DataInicioPonto",
+				"type": "varchar"
+			},
+			{
+				"name": "DataFinalPonto",
+				"type": "varchar"
+			},
+			{
+				"name": "Observacao",
+				"type": "varchar"
+			},
+			{
+				"name": "Categoria",
+				"type": "varchar"
+			},
+			{
+				"name": "FranqueadoraPercentual",
+				"type": "varchar"
+			},
+			{
+				"name": "SalasTotal",
+				"type": "varchar"
+			},
+			{
+				"name": "SalasAtivas",
+				"type": "varchar"
+			},
+			{
+				"name": "IDGrupo",
+				"type": "varchar"
+			},
+			{
+				"name": "IDEmpresa",
+				"type": "varchar"
+			},
+			{
+				"name": "GravarLog",
+				"type": "varchar"
+			},
+			{
+				"name": "TipoDesconto",
+				"type": "varchar"
+			},
+			{
+				"name": "DescLabComAvaliador",
+				"type": "varchar"
+			},
+			{
+				"name": "DescLabComNegociador",
+				"type": "varchar"
+			},
+			{
+				"name": "TipoAprovacao",
+				"type": "varchar"
+			},
+			{
+				"name": "TipoTEF",
+				"type": "varchar"
+			},
+			{
+				"name": "MaxTabelasLab",
+				"type": "varchar"
+			},
+			{
+				"name": "MaxDiasComissionar",
+				"type": "varchar"
+			},
+			{
+				"name": "PermiteClienteEstrangeiro",
+				"type": "varchar"
+			},
+			{
+				"name": "DataCadastro",
+				"type": "varchar"
+			},
+			{
+				"name": "IDUsuarioCadastro",
+				"type": "varchar"
+			},
+			{
+				"name": "DataAlteracao",
+				"type": "varchar"
+			},
+			{
+				"name": "IDUsuarioAlteracao",
+				"type": "varchar"
+			},
+			{
+				"name": "CategoriaPlanoConta",
+				"type": "varchar"
+			},
+			{
+				"name": "PontoReferencia",
+				"type": "varchar"
+			},
+			{
+				"name": "HorarioFuncionamento",
+				"type": "varchar"
+			},
+			{
+				"name": "Estacionamento",
+				"type": "varchar"
+			},
+			{
+				"name": "AcessoCadeirante",
+				"type": "varchar"
+			},
+			{
+				"name": "RadiografiaPanoramica",
+				"type": "varchar"
+			},
+			{
+				"name": "AceitaSorriden",
+				"type": "varchar"
+			},
+			{
+				"name": "PermitePesquisaUnidades",
+				"type": "varchar"
+			},
+			{
+				"name": "CategoriaTamanho",
+				"type": "varchar"
+			},
+			{
+				"name": "IDTipoReceitaDespesa",
+				"type": "varchar"
+			},
+			{
+				"name": "DiaVencimentoFundo",
+				"type": "varchar"
+			},
+			{
+				"name": "SmsPermitirResposta",
+				"type": "varchar"
+			},
+			{
+				"name": "BloquearAcesso",
+				"type": "varchar"
+			},
+			{
+				"name": "IDModeloEmail",
+				"type": "varchar"
+			},
+			{
+				"name": "NomeComercial",
+				"type": "varchar"
+			},
+			{
+				"name": "DataEncerramento",
+				"type": "varchar"
+			},
+			{
+				"name": "DiaTravaSolicitacaoPagamento",
+				"type": "varchar"
+			},
+			{
+				"name": "VerificarLimiteOrcamento",
+				"type": "varchar"
+			},
+			{
+				"name": "IDRxPlano",
+				"type": "varchar"
+			},
+			{
+				"name": "CobrarMensalidadeSistema",
+				"type": "varchar"
+			},
+			{
+				"name": "ValorMensalidadeSistema",
+				"type": "varchar"
+			},
+			{
+				"name": "RegimeTributario",
+				"type": "varchar"
+			},
+			{
+				"name": "IDSisoTabelaPreco",
+				"type": "varchar"
+			},
+			{
+				"name": "HorarioInicio",
+				"type": "varchar"
+			},
+			{
+				"name": "HorarioTermino",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tableName",
+				"type": "Expression"
+			}
+		}
+	}
+}

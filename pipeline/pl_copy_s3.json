@@ -1170,6 +1170,65 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "Copy ADLS to Staging",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Copy Avaliacao data from S3 to ADLS",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ParquetSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_adls_parquet",
+						"type": "DatasetReference",
+						"parameters": {
+							"container": "files",
+							"path": "Salus",
+							"fileName": "unidade.parquet"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "SQLStaging",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"folder": {
