@@ -1,0 +1,29 @@
+{
+	"name": "S3_CSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_aws_s3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AmazonS3Location",
+				"bucketName": "leandroaws2022",
+				"folderPath": "Salus",
+				"fileName": "Avaliacao.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ID;Status;IDUsuarioAvaliacao;DataNegociacao;IDUsuarioNegociacao;IDConsulta;IDCentroReceita;IDTabelaPreco;DataValidade;TotalTabela;TotalCobrado;TotalLaboratorio;Observacao;IDEmpresa;DataCadastro;IDUsuarioCadastro;DataAlteracao;IDUsuarioAlteracao",
+				"type": "String"
+			}
+		]
+	}
+}
