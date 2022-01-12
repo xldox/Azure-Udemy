@@ -8,11 +8,18 @@
 		"parameters": {
 			"fileName": {
 				"type": "string"
+			},
+			"tableName": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
+			"sheetName": {
+				"value": "@dataset().tableName",
+				"type": "Expression"
+			},
 			"location": {
 				"type": "AmazonS3Location",
 				"bucketName": "leandroaws2022",
