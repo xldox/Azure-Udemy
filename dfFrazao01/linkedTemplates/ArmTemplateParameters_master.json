@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "dfFrazao01"
+		},
+		"SqlServerLocalhost_connectionString": {
+			"value": ""
+		},
+		"ls_adls_accountKey": {
+			"value": ""
+		},
+		"ls_adv_wrk_dw_connectionString": {
+			"value": ""
+		},
+		"ls_sql_adv_works_connectionString": {
+			"value": ""
+		},
+		"ls_aws_s3_secretAccessKey": {
+			"value": ""
+		},
+		"ls_adls_properties_typeProperties_url": {
+			"value": "https://adlsadvwks.dfs.core.windows.net"
+		},
+		"ls_aws_s3_properties_typeProperties_accessKeyId": {
+			"value": "AKIAXBNNRNEWUDEDMUHM"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
