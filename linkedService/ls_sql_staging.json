@@ -1,0 +1,12 @@
+{
+	"name": "ls_sql_staging",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=svdbdev.database.windows.net;initial catalog=StagingArea;user id=leandro.frazao",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDNBQjc1RjZBLUQ4NUEtNDlFQi05RThELTY0OTE5MjI4MjRGRV9iZjcxMWY3OC00MjM4LTQ4YjAtYTM0Yi1lYzMxNjkwYTRhY2YiDQp9"
+		}
+	}
+}
