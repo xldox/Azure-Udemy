@@ -2417,7 +2417,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pl_stage_product')]",
+			"name": "[concat(parameters('factoryName'), '/pl_product')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -2789,6 +2789,54 @@
 								}
 							}
 						]
+					},
+					{
+						"name": "transformations",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [
+							{
+								"activity": "Copy product sub category",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "1.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "df_product",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"product": {
+										"schema": "dbo",
+										"tableName": "stg_Product"
+									},
+									"ProductCategory": {
+										"schema": "dbo",
+										"tableName": "stg_ProductCategory"
+									},
+									"productSubCategory": {
+										"schema": "dbo",
+										"tableName": "stg_ProductSubCategory"
+									},
+									"writeDimProduct": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
 					}
 				],
 				"policy": {
@@ -2802,7 +2850,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/sql_oltp')]",
-				"[concat(variables('factoryId'), '/datasets/SQLStaging')]"
+				"[concat(variables('factoryId'), '/datasets/SQLStaging')]",
+				"[concat(variables('factoryId'), '/dataflows/df_product')]"
 			]
 		},
 		{
