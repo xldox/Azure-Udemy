@@ -371,7 +371,7 @@
 				]
 			},
 			{
-				"name": "Data flow1",
+				"name": "transformations",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [
 					{
@@ -390,6 +390,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_product",
+						"type": "DataFlowReference"
+					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
