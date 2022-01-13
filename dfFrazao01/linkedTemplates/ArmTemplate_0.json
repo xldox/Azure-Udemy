@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "dfFrazao01"
 		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
 		"ls_adls_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_adls'"
@@ -56,6 +60,30 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-417701726202701.1.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"newClusterNodeType": "Standard_DS3_v2",
+					"newClusterNumOfWorker": "4",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "10.0.x-scala2.12",
+					"newClusterInitScripts": []
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureKeyVault1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -180,6 +208,46 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_databricks')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Notebook1",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/adftutorial/notebook1"
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureDatabricks1",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"folder": {
+					"name": "Curso"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks1')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/S3_CSV')]",
@@ -3543,93 +3611,6 @@
 				"[concat(variables('factoryId'), '/datasets/S3_excel')]",
 				"[concat(variables('factoryId'), '/datasets/ds_adls_parquet')]",
 				"[concat(variables('factoryId'), '/datasets/SQLStaging')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/ds_sql_localhost')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "SqlServerLocalhost",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"Schema": {
-						"type": "string"
-					},
-					"Table": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "SqlServerTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "Production",
-					"table": "Product"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/SqlServerLocalhost')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/df_product')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "SQLStaging",
-								"type": "DatasetReference"
-							},
-							"name": "product"
-						},
-						{
-							"dataset": {
-								"referenceName": "SQLStaging",
-								"type": "DatasetReference"
-							},
-							"name": "ProductCategory"
-						},
-						{
-							"dataset": {
-								"referenceName": "SQLStaging",
-								"type": "DatasetReference"
-							},
-							"name": "productSubCategory"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "sql_dw",
-								"type": "DatasetReference"
-							},
-							"name": "writeDimProduct"
-						}
-					],
-					"transformations": [
-						{
-							"name": "join1"
-						},
-						{
-							"name": "Join2"
-						},
-						{
-							"name": "SelectColumns"
-						}
-					],
-					"script": "source(output(\n\t\tid as integer,\n\t\tproductName as string,\n\t\tproductCategory_id as integer,\n\t\tprice as double,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp,\n\t\tmedida as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tquery: 'select * from stg_product',\n\tformat: 'query') ~> product\nsource(output(\n\t\tid as integer,\n\t\tproductCategoryName as string,\n\t\tproductSubCategory_id as integer,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tquery: 'select * from stg_productCategory',\n\tformat: 'query') ~> ProductCategory\nsource(output(\n\t\tid as integer,\n\t\tproductSubCategoryName as string,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tquery: 'select * from stg_productsubCategory',\n\tformat: 'query') ~> productSubCategory\nproduct, ProductCategory join(productCategory_id == ProductCategory@id,\n\tjoinType:'left',\n\tbroadcast: 'auto')~> join1\njoin1, productSubCategory join(productSubCategory_id == productSubCategory@id,\n\tjoinType:'left',\n\tbroadcast: 'auto')~> Join2\nJoin2 select(mapColumn(\n\t\tproduct_id = product@id,\n\t\tproductName,\n\t\tprice,\n\t\tmedida,\n\t\tmodified_date = product@modified_date,\n\t\tcreated_date = product@created_date,\n\t\tproductCategory_id,\n\t\tproductCategoryName,\n\t\tproductSubCategory_id,\n\t\tproductSubCategoryName\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SelectColumns\nSelectColumns sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> writeDimProduct"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SQLStaging')]",
-				"[concat(variables('factoryId'), '/datasets/sql_dw')]"
 			]
 		}
 	]

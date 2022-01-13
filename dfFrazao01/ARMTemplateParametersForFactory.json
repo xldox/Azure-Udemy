@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "dfFrazao01"
 		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
 		"SqlServerLocalhost_connectionString": {
 			"value": ""
 		},
