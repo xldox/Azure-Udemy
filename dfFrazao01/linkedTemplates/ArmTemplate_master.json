@@ -27,6 +27,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sql_adv_works'"
 		},
+		"ls_sql_dw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_sql_dw'"
+		},
 		"ls_sql_oltp_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_sql_oltp'"
@@ -86,6 +90,9 @@
 					"ls_sql_adv_works_connectionString": {
 						"value": "[parameters('ls_sql_adv_works_connectionString')]"
 					},
+					"ls_sql_dw_connectionString": {
+						"value": "[parameters('ls_sql_dw_connectionString')]"
+					},
 					"ls_sql_oltp_connectionString": {
 						"value": "[parameters('ls_sql_oltp_connectionString')]"
 					},
@@ -107,6 +114,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "dfFrazao01_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'dfFrazao01_ArmTemplate_0')]"
+			]
 		}
 	]
 }
