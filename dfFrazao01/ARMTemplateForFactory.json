@@ -2871,6 +2871,7 @@
 										"schema": "dbo",
 										"tableName": "stg_ProductSubCategory"
 									},
+									"dimProduct": {},
 									"writeDimProduct": {}
 								}
 							},
@@ -3925,13 +3926,7 @@
 						"type": "SecureString",
 						"value": "[parameters('AzureDatabricks1_accessToken')]"
 					},
-					"newClusterNodeType": "Standard_DS3_v2",
-					"newClusterNumOfWorker": "4",
-					"newClusterSparkEnvVars": {
-						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-					},
-					"newClusterVersion": "10.0.x-scala2.12",
-					"newClusterInitScripts": []
+					"existingClusterId": "0113-175110-db3bx0p8"
 				}
 			},
 			"dependsOn": []
@@ -4108,6 +4103,13 @@
 								"type": "DatasetReference"
 							},
 							"name": "productSubCategory"
+						},
+						{
+							"dataset": {
+								"referenceName": "sql_dw",
+								"type": "DatasetReference"
+							},
+							"name": "dimProduct"
 						}
 					],
 					"sinks": [
@@ -4128,9 +4130,18 @@
 						},
 						{
 							"name": "SelectColumns"
+						},
+						{
+							"name": "Exists"
+						},
+						{
+							"name": "LookupProductID"
+						},
+						{
+							"name": "AllowUpserts"
 						}
 					],
-					"script": "source(output(\n\t\tid as integer,\n\t\tproductName as string,\n\t\tproductCategory_id as integer,\n\t\tprice as double,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp,\n\t\tmedida as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tquery: 'select * from stg_product',\n\tformat: 'query') ~> product\nsource(output(\n\t\tid as integer,\n\t\tproductCategoryName as string,\n\t\tproductSubCategory_id as integer,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tquery: 'select * from stg_productCategory',\n\tformat: 'query') ~> ProductCategory\nsource(output(\n\t\tid as integer,\n\t\tproductSubCategoryName as string,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tquery: 'select * from stg_productsubCategory',\n\tformat: 'query') ~> productSubCategory\nproduct, ProductCategory join(productCategory_id == ProductCategory@id,\n\tjoinType:'left',\n\tbroadcast: 'auto')~> join1\njoin1, productSubCategory join(productSubCategory_id == productSubCategory@id,\n\tjoinType:'left',\n\tbroadcast: 'auto')~> Join2\nJoin2 select(mapColumn(\n\t\tproduct_id = product@id,\n\t\tproductName,\n\t\tprice,\n\t\tmedida,\n\t\tmodified_date = product@modified_date,\n\t\tcreated_date = product@created_date,\n\t\tproductCategory_id,\n\t\tproductCategoryName,\n\t\tproductSubCategory_id,\n\t\tproductSubCategoryName\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SelectColumns\nSelectColumns sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> writeDimProduct"
+					"script": "source(output(\n\t\tid as integer,\n\t\tproductName as string,\n\t\tproductCategory_id as integer,\n\t\tprice as double,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp,\n\t\tmedida as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> product\nsource(output(\n\t\tid as integer,\n\t\tproductCategoryName as string,\n\t\tproductSubCategory_id as integer,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> ProductCategory\nsource(output(\n\t\tid as integer,\n\t\tproductSubCategoryName as string,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> productSubCategory\nsource(output(\n\t\tsk_product_id as integer,\n\t\tproduct_id as integer,\n\t\tproductName as string,\n\t\tprice as double,\n\t\tmedida as string,\n\t\tcreated_date as timestamp,\n\t\tmodified_date as timestamp,\n\t\tproductCategory_id as integer,\n\t\tproductCategoryName as string,\n\t\tproductSubCategory_id as integer,\n\t\tproductSubCategoryName as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> dimProduct\nproduct, ProductCategory join(productCategory_id == ProductCategory@id,\n\tjoinType:'left',\n\tbroadcast: 'auto')~> join1\njoin1, productSubCategory join(productSubCategory_id == productSubCategory@id,\n\tjoinType:'left',\n\tbroadcast: 'auto')~> Join2\nJoin2 select(mapColumn(\n\t\tproduct_id = product@id,\n\t\tproductName,\n\t\tprice,\n\t\tmedida,\n\t\tmodified_date = product@modified_date,\n\t\tcreated_date = product@created_date,\n\t\tproductCategory_id,\n\t\tproductCategoryName,\n\t\tproductSubCategory_id,\n\t\tproductSubCategoryName\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SelectColumns\nSelectColumns, dimProduct exists(SelectColumns@product_id == dimProduct@product_id,\n\tnegate:true,\n\tbroadcast: 'auto')~> Exists\nExists, dimProduct lookup(SelectColumns@product_id == dimProduct@product_id,\n\tmultiple: false,\n\tpickup: 'any',\n\tbroadcast: 'auto')~> LookupProductID\nLookupProductID alterRow(upsertIf(true())) ~> AllowUpserts\nAllowUpserts sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tsaveOrder: 1,\n\terrorHandlingOption: 'stopOnFirstError') ~> writeDimProduct"
 				}
 			},
 			"dependsOn": [
