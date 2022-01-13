@@ -392,7 +392,21 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "df_product",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"product": {
+								"schema": "dbo",
+								"tableName": "stg_Product"
+							},
+							"ProductCategory": {
+								"schema": "dbo",
+								"tableName": "stg_ProductCategory"
+							},
+							"productSubCategory": {
+								"schema": "dbo",
+								"tableName": "stg_ProductSubCategory"
+							}
+						}
 					},
 					"compute": {
 						"coreCount": 8,
