@@ -1,0 +1,77 @@
+[tool.poetry]
+name = "five9"
+version = "0.1.0"
+description = "Pipeline de dados dos reports da plataforma Five9"
+authors = ["Matheus Costa"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11.5"
+httpx = "0.25.0"
+loguru = "0.7.2"
+nest-asyncio = "1.5.8"
+pandas = "2.0.3"
+pydantic = "2.4.2"
+pyodbc = "4.0.39"
+python-dotenv = "1.0.0"
+sqlalchemy = "2.0.21"
+typing-extensions = "4.8.0"
+xmltodict = "0.13.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+taskipy = "^1.12.0"
+isort = "^5.12.0"
+pytest = "^7.4.2"
+flake8 = "^6.1.0"
+pre-commit = "^3.4.0"
+pydocstyle = "^6.3.0"
+pip-audit = "^2.6.1"
+
+[tool.poetry.group.mkdocs.dependencies]
+mkdocs = "^1.5.3"
+mkdocstrings-python = "^1.7.3"
+pygments = "^2.16.1"
+mkdocs-material = "^9.4.5"
+pymdown-extensions = "^10.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+known_third_party = []
+
+[tool.black]
+line-lenght = 79
+include = '\.piy?$'
+exclude = '''
+/(
+  \.git
+ | \.hg
+ | \.mypy_cache
+ | \.tox
+ | \.venv
+ | _build
+ | buck-out
+ | build
+ )/
+'''
+
+[tool.taskipy.tasks]
+format = """
+isort .
+black .
+"""
+test = "pytest -v"
+run_chat = """
+python -m src.pipeline_chat 5
+"""
+run_voz = """
+python -m src.pipeline_voz 8
+"""
+run_checkpoints_voz = """
+python -m src.pipeline_checkpoints_voz 5
+"""
+doc = "mkdocs serve"

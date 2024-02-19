@@ -1,0 +1,12 @@
+black==23.9.1
+httpx==0.25.0
+loguru==0.7.2
+nest-asyncio==1.5.8
+pandas==2.0.3
+pydantic==2.4.2
+pyodbc==4.0.39
+python-dotenv==1.0.0
+requests==2.31.0
+SQLAlchemy==2.0.21
+typing-extensions==4.8.0
+xmltodict==0.13.0

@@ -1,0 +1,59 @@
+site_name: Pipeline de Dados - Five9
+
+nav:
+  - Início: index.md
+  - Tutoriais:
+    - Pré-requisitos: tutorials/requirements.md
+    - Instalação e Configuração: tutorials/config.md
+  - ETL:
+    - Requisição HTTP: etl/httpx.md
+    - Gerenciamento DB: etl/manager_db.md
+    - Extração: etl/extract.md
+    - Transformação e Carga:
+      - DBAPI: etl/upload_to_db/dbapi.md
+      - STAGE:
+        - Python: etl/upload_to_db/stage.md
+        - SQL: etl/upload_to_db/queries/procedures_stg.md
+      - DBDW: etl/upload_to_db/dbdw.md
+      - ODS: etl/upload_to_db/ods.md
+  - Tabelas: tabelas.md
+
+theme:
+  name: material # or other theme
+  # Palette toggle for light mode
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo claro
+  theme:
+    font:
+      text: Ubuntu
+      code: Ubuntu Mono
+  language: pt
+
+repo_name: "matheus.costa/five9"
+repo_url: "http://git.sumicity.net.br/matheus.costa/five9"
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
