@@ -14,5 +14,5 @@ ELSE
 		SELECT @DATA_ATUAL_EXTERNA
 	END
 
---select * from TESTE.dbo.teste_variavel
+----select * from TESTE.dbo.teste_variavel
 --TRUNCATE TABLE TESTE.dbo.teste_variavel
