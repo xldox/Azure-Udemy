@@ -1,0 +1,14 @@
+# ignore __pycache__ folder
+__pycache__/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ignore logs folder
+logs

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "alloha-app",
+  "private_key_id": "ef7f3f8d692f629a16bf02da27478bc858db095d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDjVm8fIxqNSsYW\nmSn8jAQ2Pom/rswqLKAidcqSAlCspFIZWejIwdd+yMcaMK+27pcDFfDkW6deonZY\nx24VGguHQqlALOUCyuzH0mQQoC8JXvrKuaQE/cyroGSPwpzqV/ZdkQoOejbpxSov\nnQo3aw0Fbb4PWc+9BFzqZg3ZtqoI1TgvwL95qKGOhvh5VoG5Xyo3gJ3DrBDC+SRm\na92tCT2T5XRANSNOVyAPzK6Edfpb46QRVuXPnyHeUg/5f+qmvAkj+vtNNE8Io6Se\n6TP+4XYuR6066xjKIzaRTU44lioLNpzcaR0Z9fNvT5A8v4hpKIYKcyQ1REJR6bIn\nFy0MstuDAgMBAAECggEAIw5fEFQfcg5HwZBY0yLcO2klYLOZtB8xil7Tn/RPcG/e\nYR5mMR8DFf/sA/PiBLmB++3UOcKQap1u1n3aUdK0WGVFKCpEHkwgeyfMWmv5FN7a\nmYxK6KIif4y6NRjzjYeG7CLDhDwAX8gRm0oCG02csmub1U4qJKGZmmOmWx451iaQ\nnlJ8ebYOjHK9LwoF7rX729bK78xQfTN4eaqi5X5XQiUJ160BHjS73VeTqFSnJ6SC\n/hetPtUFqMOv5YMD4l55wa06H/CQ6lEiHWRQUi0jiGgvYPPdnnxn1Pwr6+bS36+C\nO7JdiuXHcW6Cu44pqoGboUfcCXSIHWBuLmGvydAfYQKBgQDycacVNvVm1p7hws/h\nQV3sPsIrt4LaOzNGwCilECXo1k/XXYtOLvNgBDMJmnnrukZVRBVx6s381N3EbR1Z\nVeEFgbofLPtGSRYYD75uqkqUAsmM67QEFC6nUWVHhXHqXvFmwe2gLRmgpwgsZglE\nJfxtrsovzMhhr+bYgvUWNS1Y+wKBgQDwDIyZYoDDMQ9Pqe5PL8/uvT/EtuoHbRMV\nmm4RWIMnVZDZ0JsewYPRa7jTx5OaZyhpiVmvtsHu7y0/tqpfU7v0YWE9ELPRzqY2\nA3p4kEi3xsgmdiS59ueU8Hd7Eh2klKbXSFE0JCawH599Hiy8hPOAS8PF0MjYbYKv\nHUWMi22RGQKBgQCXt6/Lgt0HQf+jX/ofCHzyPkPcf7aPQsTP3aiRww02LAdCyvNG\nNfNvfrFBrT3m2mbxLO4On9XQBpXROkdHhIqQm6IRqGCGl24QGKofLsoE3cmrOkUo\n2EhpxHIQ0915wXhnyawetJp5Ao4G2sOptevF57/3MbukBiP8Ede10glSyQKBgDNC\nysd6dHq6QEXHyP8Z+7JEsZhlYyaA0WF8n+KOXzuIFy2cUXPI6UhQU6DN7qQ7QTMA\nRKm0QkeuxZ/kdw9yRyHRpb0vkubL1UyVg5K5ZP3xsg4cjo0zv5Jbo3ghjzj1EYfJ\nhqW2zpgvuJQ0XGNJlOIhy8WzZyBoik6w1ohDwfsJAoGAexfqhcHZxxtnLRikBwv2\nzCIAh2Ozrbrpt5HM6sG8TkCEbevTimV90jkXYUldRPLNrm+AkNfGl45qqtKpVKdK\nm42xLXvp3JbCJXzENegJOfEErAz+H0DEvB7DYwJo7cSpgQaPHdjJ51Q9WR8Gdfce\nxZ3TNo9fdNe+723jYNfMbGQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-dm4e6@alloha-app.iam.gserviceaccount.com",
+  "client_id": "101554050713840009717",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-dm4e6%40alloha-app.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
